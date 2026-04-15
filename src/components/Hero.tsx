@@ -1,6 +1,10 @@
 import { ChevronDown } from "lucide-react";
 
 const Hero = () => {
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div
@@ -10,24 +14,45 @@ const Hero = () => {
             "url('https://images.unsplash.com/photo-1528823872057-9c018a7a7553?auto=format&fit=crop&w=1920&q=80')",
         }}
       >
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+      </div>
+
+      {/* Top bar */}
+      <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-8 md:px-12 py-6">
+        <span className="text-[#F5F1EA]/70 text-sm tracking-[0.2em] uppercase" style={{ fontFamily: "'Inter', sans-serif" }}>
+          Zeist
+        </span>
+        <button
+          onClick={scrollToContact}
+          className="text-[#F5F1EA]/80 hover:text-[#F5F1EA] text-sm tracking-[0.15em] uppercase transition-colors border-b border-[#F5F1EA]/30 hover:border-[#F5F1EA]/70 pb-0.5"
+          style={{ fontFamily: "'Inter', sans-serif" }}
+        >
+          Neem contact op
+        </button>
       </div>
 
       <div className="relative z-10 text-center px-6">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-wide text-[#F5F1EA] mb-6">
+        <div className="mb-6 flex items-center justify-center gap-6">
+          <div className="w-16 h-px bg-[#F5F1EA]/30" />
+          <span className="text-[#F5F1EA]/50 text-xs tracking-[0.3em] uppercase" style={{ fontFamily: "'Inter', sans-serif" }}>
+            Wijnhandel
+          </span>
+          <div className="w-16 h-px bg-[#F5F1EA]/30" />
+        </div>
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-wide text-[#F5F1EA] mb-5">
           Wijnen 't Sticht
         </h1>
-        <p className="text-lg md:text-xl font-light tracking-widest uppercase text-[#F5F1EA]/80" style={{ fontFamily: "'Inter', sans-serif" }}>
-          Wijnhandel in Zeist — sinds 2014
+        <p className="text-base md:text-lg font-light tracking-[0.2em] uppercase text-[#F5F1EA]/60" style={{ fontFamily: "'Inter', sans-serif" }}>
+          Sinds 2014
         </p>
       </div>
 
       <button
         onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
-        className="absolute bottom-10 z-10 text-[#F5F1EA]/60 hover:text-[#F5F1EA] transition-colors animate-bounce"
+        className="absolute bottom-10 z-10 text-[#F5F1EA]/40 hover:text-[#F5F1EA]/70 transition-colors"
         aria-label="Scroll naar beneden"
       >
-        <ChevronDown className="w-8 h-8" />
+        <ChevronDown className="w-6 h-6 animate-bounce" />
       </button>
     </section>
   );
