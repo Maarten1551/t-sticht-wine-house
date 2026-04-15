@@ -16,11 +16,22 @@ const Index = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.05, rootMargin: "0px 0px -30px 0px" }
     );
 
-    document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    const observe = () => {
+      document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+    };
+
+    observe();
+
+    // Re-observe after a short delay to catch dynamically rendered elements
+    const timeout = setTimeout(observe, 500);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(timeout);
+    };
   }, []);
 
   return (
