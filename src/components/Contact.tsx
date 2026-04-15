@@ -20,10 +20,10 @@ const Contact = () => {
             <p>Het Rond 5D, 3701HS Zeist</p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
             <a
               href="mailto:info@wijnenhetsticht.nl"
-              className="inline-flex items-center gap-3 px-8 py-3 text-primary hover:text-primary-foreground hover:bg-primary transition-all text-sm tracking-wider uppercase border-b-2 border-primary/20 hover:border-primary"
+              className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full border border-primary/25 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-sm tracking-wider uppercase"
             >
               <Mail className="w-4 h-4" />
               E-mail
@@ -32,14 +32,14 @@ const Contact = () => {
               href="https://wa.me/31613561331"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-3 text-primary hover:text-primary-foreground hover:bg-primary transition-all text-sm tracking-wider uppercase border-b-2 border-primary/20 hover:border-primary"
+              className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full border border-primary/25 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-sm tracking-wider uppercase"
             >
               <MessageCircle className="w-4 h-4" />
               WhatsApp
             </a>
             <a
               href="tel:+31613561331"
-              className="inline-flex items-center gap-3 px-8 py-3 text-primary hover:text-primary-foreground hover:bg-primary transition-all text-sm tracking-wider uppercase border-b-2 border-primary/20 hover:border-primary"
+              className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full border border-primary/25 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-sm tracking-wider uppercase"
             >
               <Phone className="w-4 h-4" />
               Bellen
