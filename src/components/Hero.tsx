@@ -18,13 +18,10 @@ const Hero = () => {
       </div>
 
       {/* Top bar */}
-      <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-8 md:px-12 py-6">
-        <span className="text-[#F5F1EA]/70 text-sm tracking-[0.2em] uppercase" style={{ fontFamily: "'Inter', sans-serif" }}>
-          Zeist
-        </span>
+      <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-center px-8 md:px-12 py-8">
         <button
           onClick={scrollToContact}
-          className="text-[#F5F1EA]/80 hover:text-[#F5F1EA] text-sm tracking-[0.15em] uppercase transition-colors border-b border-[#F5F1EA]/30 hover:border-[#F5F1EA]/70 pb-0.5"
+          className="px-7 py-2.5 rounded-full border border-[#F5F1EA]/25 text-[#F5F1EA]/80 hover:text-[#F5F1EA] hover:border-[#F5F1EA]/50 text-xs tracking-[0.2em] uppercase transition-all duration-300"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
           Neem contact op
