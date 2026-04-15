@@ -1,9 +1,9 @@
 const Hero = () => {
   return (
-    <section className="grid md:grid-cols-5 min-h-screen">
+    <section className="grid min-h-screen" style={{ gridTemplateColumns: '35% 65%' }}>
 
       {/* Links — bordeaux, 40% */}
-      <div className="md:col-span-2 bg-[#5A1A2B] flex flex-col items-center justify-between py-16 px-10 text-center">
+      <div className="bg-[#5A1A2B] flex flex-col items-center justify-between py-16 px-10 text-center">
 
         {/* Logo bovenin bordeaux */}
         <img
@@ -42,7 +42,7 @@ const Hero = () => {
       </div>
 
       {/* Rechts — crème, 60% */}
-      <div className="md:col-span-3 bg-[#F5F1EA] flex flex-col justify-between py-16 px-10 md:px-16">
+      <div className="bg-[#F5F1EA] flex flex-col justify-between py-16 px-10 md:px-16">
 
         {/* Eyebrow */}
         <p
