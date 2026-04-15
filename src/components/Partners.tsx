@@ -1,27 +1,63 @@
 import { useState, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const allPartners = [
-  { naam: "Weingut August Eser", url: "https://www.weingut-august-eser.de", detail: "Rheingau, Duitsland" },
-  { naam: "Domaine JanotsBos", url: "https://www.janotsbos.com", detail: "Meursault, Bourgogne" },
-  { naam: "Dubos", url: "https://www.dubos.fr", detail: "Bordeaux, Frankrijk" },
-  { naam: "Bodegas Valduero", url: "https://www.valduero.com", detail: "Ribera del Duero, Spanje" },
-  { naam: "Lustrum RSC/RVSV 2024", url: "https://lustrumrscrvsc.nl", detail: "Samenwerking" },
-  { naam: "Lustrum Vindicat 2025", url: "https://www.vindicat.nl", detail: "Samenwerking" },
+type Partner = {
+  naam: string;
+  detail: string;
+  foto: string;
+};
+
+const partners: Partner[] = [
+  { naam: "Weingut August Eser", detail: "Rheingau, Duitsland", foto: "/Images/partners/weingut-august-eser.jpg" },
+  { naam: "Domaine JanotsBos", detail: "Meursault, Bourgogne", foto: "/Images/partners/janotsbos.jpg" },
+  { naam: "Dubos", detail: "Bordeaux, Frankrijk", foto: "/Images/partners/dubos-bordeaux.jpg" },
+  { naam: "Piandimare", detail: "Italië", foto: "/Images/partners/piandimare.jpg" },
+  { naam: "Magali Rosé", detail: "Provence, Frankrijk", foto: "/Images/partners/magali-rose-provence.jpg" },
+  { naam: "Lustrum RSC/RVSV 2024", detail: "Samenwerking", foto: "/Images/partners/rsc-lustrum.jpg" },
 ];
+
+const PartnerCard = ({ partner }: { partner: Partner }) => (
+  <div className="group flex flex-col">
+    <div className="aspect-[4/3] overflow-hidden rounded-lg shadow-[0_8px_30px_rgba(90,26,43,0.12)] mb-5">
+      <img
+        src={partner.foto}
+        alt={partner.naam}
+        className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out"
+        loading="lazy"
+      />
+    </div>
+    <p
+      className="text-xl font-light text-foreground/85 leading-snug"
+      style={{ fontFamily: "'Cormorant Garamond', serif" }}
+    >
+      {partner.naam}
+    </p>
+    <p className="text-sm text-foreground/45 mt-1">{partner.detail}</p>
+  </div>
+);
 
 const Partners = () => {
   const [current, setCurrent] = useState(0);
+  const [fading, setFading] = useState(false);
 
-  const prev = useCallback(() => setCurrent((c) => (c === 0 ? allPartners.length - 1 : c - 1)), []);
-  const next = useCallback(() => setCurrent((c) => (c === allPartners.length - 1 ? 0 : c + 1)), []);
+  const goTo = useCallback((newIdx: number) => {
+    setFading(true);
+    setTimeout(() => {
+      setCurrent(newIdx);
+      setFading(false);
+    }, 250);
+  }, []);
 
-  const getIndex = (offset: number) => (current + offset) % allPartners.length;
+  const prev = useCallback(() => goTo((current - 1 + partners.length) % partners.length), [current, goTo]);
+  const next = useCallback(() => goTo((current + 1) % partners.length), [current, goTo]);
+
+  const indices = [0, 1, 2].map((offset) => (current + offset) % partners.length);
 
   return (
-    <section className="py-16 md:py-20 px-6">
-      <div className="max-w-5xl mx-auto">
-        <div className="fade-in text-center mb-12">
+    <section className="py-16 md:py-24 px-6">
+      <div className="max-w-6xl mx-auto">
+
+        <div className="fade-in text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-light text-primary tracking-wide mb-3">
             Partners &amp; leveranciers
           </h2>
@@ -30,64 +66,45 @@ const Partners = () => {
           </p>
         </div>
 
-        <div className="fade-in flex items-center justify-center gap-6 md:gap-10">
+        <div className="fade-in flex items-center gap-4 md:gap-8">
           <button
             onClick={prev}
-            className="shrink-0 w-10 h-10 flex items-center justify-center text-primary/30 hover:text-primary transition-colors"
+            className="shrink-0 w-10 h-10 flex items-center justify-center rounded-full border border-primary/20 text-primary/40 hover:text-primary hover:border-primary/40 transition-all duration-300"
             aria-label="Vorige"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-4 h-4" />
           </button>
 
-          <div className="flex items-center gap-8 md:gap-14">
-            {[0, 1, 2].map((offset) => {
-              const idx = getIndex(offset);
-              const partner = allPartners[idx];
-              const isCenter = offset === 1;
-              return (
-                <a
-                  key={`${idx}-${offset}`}
-                  href={partner.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`group flex flex-col items-center text-center transition-all duration-300 ${
-                    isCenter ? "opacity-100 scale-100" : "opacity-40 scale-90 hidden md:flex"
-                  }`}
-                >
-                  <div className="w-16 h-16 rounded-full bg-primary/8 flex items-center justify-center group-hover:bg-primary/15 transition-all duration-400 mb-3">
-                    <span
-                      className="text-xl font-semibold text-primary/50 group-hover:text-primary transition-colors"
-                      style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                    >
-                      {partner.naam.split(" ").pop()?.charAt(0)}
-                    </span>
-                  </div>
-                  <span className="text-sm text-foreground/75 group-hover:text-primary transition-colors whitespace-nowrap">
-                    {partner.naam}
-                  </span>
-                  <span className="text-xs text-foreground/35 mt-1">{partner.detail}</span>
-                </a>
-              );
-            })}
+          <div
+            className="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-8"
+            style={{ opacity: fading ? 0 : 1, transition: "opacity 250ms ease-in-out" }}
+          >
+            {indices.map((idx, pos) => (
+              <div
+                key={`${idx}-${pos}`}
+                style={{ opacity: pos === 1 ? 1 : 0.55, transition: "opacity 400ms ease-in-out" }}
+              >
+                <PartnerCard partner={partners[idx]} />
+              </div>
+            ))}
           </div>
 
           <button
             onClick={next}
-            className="shrink-0 w-10 h-10 flex items-center justify-center text-primary/30 hover:text-primary transition-colors"
+            className="shrink-0 w-10 h-10 flex items-center justify-center rounded-full border border-primary/20 text-primary/40 hover:text-primary hover:border-primary/40 transition-all duration-300"
             aria-label="Volgende"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-4 h-4" />
           </button>
         </div>
 
-        {/* Dots */}
         <div className="flex justify-center gap-2 mt-8">
-          {allPartners.map((_, i) => (
+          {partners.map((_, i) => (
             <button
               key={i}
-              onClick={() => setCurrent(i)}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                i === current ? "bg-primary/40 w-5" : "bg-primary/12 w-1.5"
+              onClick={() => goTo(i)}
+              className={`h-1.5 rounded-full transition-all duration-500 ${
+                i === current ? "bg-primary/50 w-6" : "bg-primary/15 w-1.5"
               }`}
               aria-label={`Partner ${i + 1}`}
             />

@@ -13,6 +13,9 @@ const Footer = () => {
         <p className="text-xs text-foreground/30">
           Het Rond 5D, 3701HS Zeist
         </p>
+        <p className="text-xs text-foreground/30">
+          info@wijnenhetsticht.nl · +31 6 13 56 13 31
+        </p>
         <p className="text-xs text-foreground/30 pt-2">
           &copy; {new Date().getFullYear()} Wijnen 't Sticht
         </p>

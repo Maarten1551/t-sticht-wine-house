@@ -1,56 +1,80 @@
-import { ChevronDown } from "lucide-react";
-
 const Hero = () => {
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1528823872057-9c018a7a7553?auto=format&fit=crop&w=1920&q=80')",
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+    <section className="grid md:grid-cols-5 min-h-screen">
+
+      {/* Links — bordeaux, 40% */}
+      <div className="md:col-span-2 bg-[#5A1A2B] flex flex-col items-center justify-between py-16 px-10 text-center">
+
+        {/* Logo bovenin bordeaux */}
+        <img
+          src="/logo-new.png"
+          alt="Wijnen 't Sticht"
+          className="h-44 w-auto object-contain"
+        />
+
+        {/* Contact gecentreerd */}
+        <div className="flex flex-col items-center gap-8">
+        <div className="w-10 h-px bg-[#F5F1EA]/25" />
+        <div className="space-y-5">
+          <p
+            className="text-sm tracking-[0.3em] uppercase text-[#F5F1EA]/60"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            Interesse in een wijn?
+          </p>
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="block text-4xl md:text-5xl font-light text-[#F5F1EA] hover:text-[#F5F1EA]/70 transition-colors duration-300"
+            style={{ fontFamily: "'Cormorant Garamond', serif", letterSpacing: "-0.01em" }}
+          >
+            Neem contact op
+          </a>
+        </div>
+        <div className="w-10 h-px bg-[#F5F1EA]/25" />
+        </div>
+
+        <div /> {/* spacer onderaan */}
+
       </div>
 
-      {/* Top bar */}
-      <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-center px-8 md:px-12 py-8">
-        <button
-          onClick={scrollToContact}
-          className="px-7 py-2.5 rounded-full border border-[#F5F1EA]/25 text-[#F5F1EA]/80 hover:text-[#F5F1EA] hover:border-[#F5F1EA]/50 text-xs tracking-[0.2em] uppercase transition-all duration-300"
+      {/* Rechts — crème, 60% */}
+      <div className="md:col-span-3 bg-[#F5F1EA] flex flex-col justify-between py-16 px-10 md:px-16">
+
+        {/* Eyebrow */}
+        <p
+          className="text-sm tracking-[0.3em] uppercase text-foreground/60"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
-          Neem contact op
-        </button>
-      </div>
-
-      <div className="relative z-10 text-center px-6">
-        <div className="mb-6 flex items-center justify-center gap-6">
-          <div className="w-16 h-px bg-[#F5F1EA]/30" />
-          <span className="text-[#F5F1EA]/50 text-xs tracking-[0.3em] uppercase" style={{ fontFamily: "'Inter', sans-serif" }}>
-            Wijnhandel
-          </span>
-          <div className="w-16 h-px bg-[#F5F1EA]/30" />
-        </div>
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-wide text-[#F5F1EA] mb-5">
-          Wijnen 't Sticht
-        </h1>
-        <p className="text-base md:text-lg font-light tracking-[0.2em] uppercase text-[#F5F1EA]/60" style={{ fontFamily: "'Inter', sans-serif" }}>
-          Sinds 2014
+          Wijnhandel · Zeist · Sinds 2014
         </p>
+
+        {/* Heading */}
+        <h1
+          className="font-light text-primary"
+          style={{
+            fontFamily: "'Cormorant Garamond', serif",
+            fontSize: "clamp(5rem, 13vw, 16rem)",
+            lineHeight: 1,
+            letterSpacing: "-0.02em",
+          }}
+        >
+          Wijnen<br />'t Sticht
+        </h1>
+
+        {/* Tagline */}
+        <p
+          className="text-base text-foreground/60 leading-relaxed max-w-sm"
+          style={{ fontFamily: "'Inter', sans-serif" }}
+        >
+          Directe import van kwaliteitswijnen uit Frankrijk, Duitsland, Italië, Spanje en Zuid-Afrika.
+        </p>
+
       </div>
 
-      <button
-        onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
-        className="absolute bottom-10 z-10 text-[#F5F1EA]/40 hover:text-[#F5F1EA]/70 transition-colors"
-        aria-label="Scroll naar beneden"
-      >
-        <ChevronDown className="w-6 h-6 animate-bounce" />
-      </button>
     </section>
   );
 };

@@ -1,13 +1,22 @@
+const Divider = () => (
+  <div className="max-w-xs mx-auto flex items-center gap-4">
+    <div className="flex-1 h-px bg-primary/15" />
+    <span className="text-primary/30 text-lg" style={{ fontFamily: "'Cormorant Garamond', serif" }}>✦</span>
+    <div className="flex-1 h-px bg-primary/15" />
+  </div>
+);
+
 const OverOns = () => {
   return (
     <section className="px-6">
-      {/* Over Wijnen 't Sticht */}
+
+      {/* Over Wijnen 't Sticht — foto + tekst */}
       <div className="fade-in max-w-6xl mx-auto py-16 md:py-24 grid md:grid-cols-5 gap-10 md:gap-16 items-center">
         <div className="md:col-span-2">
-          <div className="aspect-[3/4] overflow-hidden rounded-sm">
+          <div className="aspect-[4/3] overflow-hidden rounded-lg shadow-[0_8px_30px_rgba(90,26,43,0.10)]">
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"
-              alt="Eigenaar Wijnen 't Sticht"
+              src="/Images/about/In de piemonte.JPG"
+              alt="Eigenaar Wijnen 't Sticht in de Piemonte"
               className="w-full h-full object-cover"
               loading="lazy"
             />
@@ -26,64 +35,31 @@ const OverOns = () => {
         </div>
       </div>
 
-      <div className="max-w-xs mx-auto flex items-center gap-4">
-        <div className="flex-1 h-px bg-primary/15" />
-        <span className="text-primary/30 text-lg" style={{ fontFamily: "'Cormorant Garamond', serif" }}>✦</span>
-        <div className="flex-1 h-px bg-primary/15" />
-      </div>
+      <Divider />
 
-      {/* Passie & expertise */}
-      <div className="fade-in max-w-6xl mx-auto py-16 md:py-24 grid md:grid-cols-5 gap-10 md:gap-16 items-center">
-        <div className="md:col-span-3 space-y-5 md:order-1">
-          <h2 className="text-3xl md:text-4xl font-light text-primary tracking-wide">
+      {/* Passie & Import — twee kolommen tekst */}
+      <div className="fade-in max-w-6xl mx-auto py-16 md:py-24 grid md:grid-cols-2 gap-12 md:gap-20">
+        <div className="space-y-5">
+          <h2 className="text-2xl md:text-3xl font-light text-primary tracking-wide">
             Passie &amp; expertise
           </h2>
           <p className="text-base leading-[1.8] text-foreground/80">
-            Passie voor wijnen gaat bij ons gepaard met opgebouwde expertise. Wij verkopen een wijn alleen als wij daar geheel achter staan! Al onze wijnen zijn uitvoerig doorgeproefd en hebben wij zelf gedronken. Stuk voor stuk. Wij zoeken - veelal kleinere - producenten uit die wij waarderen om hun vakmanschap, loyaliteit en beproefde langdurige samenwerking.
+            Passie voor wijnen gaat bij ons gepaard met opgebouwde expertise. Wij verkopen een wijn alleen als wij daar geheel achter staan. Al onze wijnen zijn uitvoerig doorgeproefd en hebben wij zelf gedronken — stuk voor stuk. Wij zoeken veelal kleinere producenten uit die wij waarderen om hun vakmanschap, loyaliteit en beproefde langdurige samenwerking.
           </p>
         </div>
-        <div className="md:col-span-2 md:order-2">
-          <div className="aspect-[3/4] overflow-hidden rounded-sm">
-            <img
-              src="https://images.unsplash.com/photo-1474722883778-792e7990302f?auto=format&fit=crop&w=800&q=80"
-              alt="Wijnproeverij"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className="max-w-xs mx-auto flex items-center gap-4">
-        <div className="flex-1 h-px bg-primary/15" />
-        <span className="text-primary/30 text-lg" style={{ fontFamily: "'Cormorant Garamond', serif" }}>✦</span>
-        <div className="flex-1 h-px bg-primary/15" />
-      </div>
-
-      {/* Eigen directe import */}
-      <div className="fade-in max-w-6xl mx-auto py-16 md:py-24 grid md:grid-cols-5 gap-10 md:gap-16 items-center">
-        <div className="md:col-span-2">
-          <div className="aspect-[3/4] overflow-hidden rounded-sm">
-            <img
-              src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=800&q=80"
-              alt="Wijnkelder"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </div>
-        <div className="md:col-span-3 space-y-5">
-          <h2 className="text-3xl md:text-4xl font-light text-primary tracking-wide">
+        <div className="space-y-5">
+          <h2 className="text-2xl md:text-3xl font-light text-primary tracking-wide">
             Eigen directe import
           </h2>
           <p className="text-base leading-[1.8] text-foreground/80">
-            Als gezegd werken wij hoofdzakelijk met kleinere producenten. Het betreft veelal familiebedrijven die - generaties lang - vanuit de ouders op de kinderen vererven. Wij importeren direct vanuit Frankrijk (Bourgogne, Bordeaux en Champagne), Duitsland (Rheingau en Baden), Italië (Piemonte, Veneto, Marken, Puglia), Spanje (Ribera en Toro) en Zuid Afrika (West Kaap).
+            Wij werken hoofdzakelijk met kleinere familiebedrijven die generaties lang van ouders op kinderen overgaan. Import direct vanuit Frankrijk (Bourgogne, Bordeaux, Champagne), Duitsland (Rheingau, Baden), Italië (Piemonte, Veneto, Marken, Puglia), Spanje (Ribera, Toro) en Zuid Afrika (West Kaap).
           </p>
           <p className="text-base leading-[1.8] text-foreground/80">
             Doordat wij direct importeren en onze overhead absoluut minimaal is, kunnen wij onze wijnen tegen lage prijzen aanbieden.
           </p>
         </div>
       </div>
+
     </section>
   );
 };

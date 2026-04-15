@@ -1,10 +1,6 @@
 const wijnen = [
-  { naam: "Riesling Kabinett", regio: "Rheingau", foto: "https://images.unsplash.com/photo-1586370434639-0fe43b2d32e6?auto=format&fit=crop&w=600&q=80" },
-  { naam: "Meursault Blanc", regio: "Bourgogne", foto: "https://images.unsplash.com/photo-1566995541428-f4e246f4bbd6?auto=format&fit=crop&w=600&q=80" },
-  { naam: "Bordeaux Supérieur", regio: "Bordeaux", foto: "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?auto=format&fit=crop&w=600&q=80" },
-  { naam: "Barolo DOCG", regio: "Piemonte", foto: "https://images.unsplash.com/photo-1474722883778-792e7990302f?auto=format&fit=crop&w=600&q=80" },
-  { naam: "Ribera del Duero Reserva", regio: "Ribera del Duero", foto: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80" },
-  { naam: "Chenin Blanc", regio: "West-Kaap", foto: "https://images.unsplash.com/photo-1558001373-7b93ee48ffa0?auto=format&fit=crop&w=600&q=80" },
+  { naam: "Mooie droge Riesling", regio: "Rheingau", prijs: "€ 14,95", foto: "/Images/wijnen/riesling-rheingau.png" },
+  { naam: "Valduero Una Cepa", regio: "Ribera del Duero", prijs: "€ 29,95", foto: "/Images/wijnen/valduero-una-cepa.png" },
 ];
 
 const Wijnen = () => {
@@ -26,7 +22,7 @@ const Wijnen = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
           {wijnen.map((wijn) => (
             <div key={wijn.naam} className="fade-in group">
-              <div className="aspect-[3/4] overflow-hidden rounded-sm mb-4">
+              <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-[0_8px_30px_rgba(90,26,43,0.10)] mb-4">
                 <img
                   src={wijn.foto}
                   alt={wijn.naam}
@@ -38,6 +34,9 @@ const Wijnen = () => {
                 {wijn.naam}
               </h3>
               <p className="text-xs text-foreground/45 mt-1">{wijn.regio}</p>
+              {wijn.prijs && (
+                <p className="text-sm text-primary/70 mt-1.5">{wijn.prijs}</p>
+              )}
             </div>
           ))}
         </div>
