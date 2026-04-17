@@ -54,8 +54,8 @@ const Partners = () => {
   const indices = [0, 1, 2].map((offset) => (current + offset) % partners.length);
 
   return (
-    <section className="py-16 md:py-24 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-16 md:py-24 px-4">
+      <div className="max-w-7xl mx-auto">
 
         <div className="fade-in text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-light text-primary tracking-wide mb-3">
@@ -66,7 +66,7 @@ const Partners = () => {
           </p>
         </div>
 
-        <div className="fade-in flex items-center gap-4 md:gap-8">
+        <div className="fade-in flex items-center gap-3 md:gap-8">
           <button
             onClick={prev}
             className="shrink-0 w-10 h-10 flex items-center justify-center rounded-full border border-primary/20 text-primary/40 hover:text-primary hover:border-primary/40 transition-all duration-300"
@@ -76,17 +76,24 @@ const Partners = () => {
           </button>
 
           <div
-            className="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-8"
+            className="flex-1"
             style={{ opacity: fading ? 0 : 1, transition: "opacity 250ms ease-in-out" }}
           >
-            {indices.map((idx, pos) => (
-              <div
-                key={`${idx}-${pos}`}
-                style={{ opacity: pos === 1 ? 1 : 0.55, transition: "opacity 400ms ease-in-out" }}
-              >
-                <PartnerCard partner={partners[idx]} />
-              </div>
-            ))}
+            {/* Mobiel: alleen actieve kaart */}
+            <div className="sm:hidden">
+              <PartnerCard partner={partners[current]} />
+            </div>
+            {/* Desktop: 3 kaarten */}
+            <div className="hidden sm:grid sm:grid-cols-3 gap-5 md:gap-8">
+              {indices.map((idx, pos) => (
+                <div
+                  key={`${idx}-${pos}`}
+                  style={{ opacity: pos === 1 ? 1 : 0.55, transition: "opacity 400ms ease-in-out" }}
+                >
+                  <PartnerCard partner={partners[idx]} />
+                </div>
+              ))}
+            </div>
           </div>
 
           <button

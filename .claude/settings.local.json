@@ -12,7 +12,9 @@
       "Bash(mv \"JanotsBos.JPG\" \"janotsbos.jpg\")",
       "Bash(mv \"RSC Lustrum.JPG\" \"rsc-lustrum.jpg\")",
       "Bash(mv \"Piandimare.JPG\" \"piandimare.jpg\")",
-      "Bash(mv \"Piandimare \\(2\\).JPG\" \"piandimare-2.jpg\")"
+      "Bash(mv \"Piandimare \\(2\\).JPG\" \"piandimare-2.jpg\")",
+      "WebFetch(domain:localhost)",
+      "Bash(node:*)"
     ]
   }
 }

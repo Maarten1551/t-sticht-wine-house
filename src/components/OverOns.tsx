@@ -1,3 +1,52 @@
+import { useState } from "react";
+
+const fotos = [
+  { src: "/Images/about/In de piemonte.JPG", alt: "Eigenaar Wijnen 't Sticht in de Piemonte" },
+  { src: "/Images/partners/samenwerking-bg.jpg", alt: "Samenwerking" },
+  { src: "/Images/partners/piandimare-2.jpg", alt: "Piandimare" },
+  { src: "/Images/partners/magali-rose-provence-2.jpg", alt: "Magali Rosé Provence" },
+];
+
+const FotoGalerij = () => {
+  const [actief, setActief] = useState(0);
+
+  return (
+    <div>
+      {/* Grote foto */}
+      <div className="aspect-[4/3] overflow-hidden rounded-lg shadow-[0_4px_20px_rgba(90,26,43,0.10)] mb-2">
+        <img
+          src={fotos[actief].src}
+          alt={fotos[actief].alt}
+          className="w-full h-full object-cover transition-opacity duration-300"
+          loading="lazy"
+        />
+      </div>
+
+      {/* Thumbnails */}
+      <div className="grid grid-cols-4 gap-2">
+        {fotos.map((foto, i) => (
+          <button
+            key={foto.src}
+            onClick={() => setActief(i)}
+            className={`aspect-[4/3] overflow-hidden rounded transition-all duration-300 ${
+              i === actief
+                ? "opacity-100 ring-1 ring-primary ring-offset-1"
+                : "opacity-40 hover:opacity-70"
+            }`}
+          >
+            <img
+              src={foto.src}
+              alt={foto.alt}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const Divider = () => (
   <div className="max-w-xs mx-auto flex items-center gap-4">
     <div className="flex-1 h-px bg-primary/15" />
@@ -8,20 +57,11 @@ const Divider = () => (
 
 const OverOns = () => {
   return (
-    <section className="px-6">
+    <section className="px-4">
 
-      {/* Over Wijnen 't Sticht — foto + tekst */}
-      <div className="fade-in max-w-6xl mx-auto py-16 md:py-24 grid md:grid-cols-5 gap-10 md:gap-16 items-center">
-        <div className="md:col-span-2">
-          <div className="aspect-[4/3] overflow-hidden rounded-lg shadow-[0_8px_30px_rgba(90,26,43,0.10)]">
-            <img
-              src="/Images/about/In de piemonte.JPG"
-              alt="Eigenaar Wijnen 't Sticht in de Piemonte"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </div>
+      {/* Over Wijnen 't Sticht — galerij + tekst */}
+      <div className="fade-in max-w-7xl mx-auto py-16 md:py-24 grid md:grid-cols-5 gap-10 md:gap-16 items-start">
+        <div className="md:col-span-2"><FotoGalerij /></div>
         <div className="md:col-span-3 space-y-5">
           <h2 className="text-3xl md:text-4xl font-light text-primary tracking-wide">
             Over Wijnen 't Sticht
@@ -38,7 +78,7 @@ const OverOns = () => {
       <Divider />
 
       {/* Passie & Import — twee kolommen tekst */}
-      <div className="fade-in max-w-6xl mx-auto py-16 md:py-24 grid md:grid-cols-2 gap-12 md:gap-20">
+      <div className="fade-in max-w-7xl mx-auto py-16 md:py-24 grid md:grid-cols-2 gap-12 md:gap-20">
         <div className="space-y-5">
           <h2 className="text-2xl md:text-3xl font-light text-primary tracking-wide">
             Passie &amp; expertise

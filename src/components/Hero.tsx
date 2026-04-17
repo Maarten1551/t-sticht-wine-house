@@ -1,9 +1,9 @@
 const Hero = () => {
   return (
-    <section className="grid min-h-screen" style={{ gridTemplateColumns: '35% 65%' }}>
+    <section className="flex flex-col md:grid md:min-h-screen" style={{ gridTemplateColumns: '35% 65%' }}>
 
       {/* Links — bordeaux, 40% */}
-      <div className="bg-[#5A1A2B] flex flex-col items-center justify-between py-16 px-10 text-center">
+      <div className="bg-[#5A1A2B] flex flex-col items-center justify-between py-12 px-10 text-center md:py-16">
 
         {/* Logo bovenin bordeaux */}
         <img
@@ -20,7 +20,7 @@ const Hero = () => {
             className="text-sm tracking-[0.3em] uppercase text-[#F5F1EA]/60"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
-            Interesse in een wijn?
+            Interesse in een wijn of meer weten over ons assortiment?
           </p>
           <a
             href="#contact"
@@ -42,7 +42,7 @@ const Hero = () => {
       </div>
 
       {/* Rechts — crème, 60% */}
-      <div className="bg-[#F5F1EA] flex flex-col justify-between py-16 px-10 md:px-16">
+      <div className="hidden md:flex bg-[#F5F1EA] flex-col justify-between py-16 px-10 md:px-16">
 
         {/* Eyebrow */}
         <p

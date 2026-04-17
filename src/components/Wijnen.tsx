@@ -1,12 +1,13 @@
 const wijnen = [
-  { naam: "Mooie droge Riesling", regio: "Rheingau", prijs: "€ 14,95", foto: "/Images/wijnen/riesling-rheingau.png" },
-  { naam: "Valduero Una Cepa", regio: "Ribera del Duero", prijs: "€ 29,95", foto: "/Images/wijnen/valduero-una-cepa.png" },
+  { naam: "Riesling", regio: "Rheingau", prijs: "€ 14,95", foto: "/Images/wijnen/riesling-rheingau.png" },
+  { naam: "Valduero (Ribera) Una Cepa", regio: "Ribera del Duero", prijs: "€ 29,95", foto: "/Images/wijnen/valduero-una-cepa.png" },
+  { naam: "Bourgogne Blanc", regio: "Bourgogne", prijs: "€ 24,95", foto: "/Images/wijnen/janots-bos-burgundy-wine-24,95.jpg" },
 ];
 
 const Wijnen = () => {
   return (
-    <section className="py-16 md:py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-16 md:py-20 px-4">
+      <div className="max-w-7xl mx-auto">
         <div className="max-w-xs mx-auto flex items-center gap-4 mb-14">
           <div className="flex-1 h-px bg-primary/15" />
           <span className="text-primary/30 text-lg" style={{ fontFamily: "'Cormorant Garamond', serif" }}>✦</span>
