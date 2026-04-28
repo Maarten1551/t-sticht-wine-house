@@ -1,7 +1,8 @@
 const wijnen = [
-  { naam: "Riesling", regio: "Rheingau", prijs: "€ 14,95", foto: "/Images/wijnen/riesling-rheingau.png" },
+  { naam: "Riesling", regio: "Rheingau", prijs: "€ 14,95", foto: "/Images/wijnen/riesling-rheingauV2.jpg" },
   { naam: "Valduero (Ribera) Una Cepa", regio: "Ribera del Duero", prijs: "€ 29,95", foto: "/Images/wijnen/valduero-una-cepa.png" },
   { naam: "Bourgogne Blanc", regio: "Bourgogne", prijs: "€ 24,95", foto: "/Images/wijnen/janots-bos-burgundy-wine-24,95.jpg" },
+  { naam: "Magali Rosé", regio: "Provence", prijs: "€ 16,95", foto: "/Images/wijnen/Magali Rose 16,95.png" },
 ];
 
 const Wijnen = () => {
@@ -20,7 +21,7 @@ const Wijnen = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {wijnen.map((wijn) => (
             <div key={wijn.naam} className="fade-in group">
               <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-[0_8px_30px_rgba(90,26,43,0.10)] mb-4">

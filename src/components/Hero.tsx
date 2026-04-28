@@ -5,11 +5,11 @@ const Hero = () => {
       {/* Links — bordeaux, 40% */}
       <div className="bg-[#5A1A2B] flex flex-col items-center justify-between py-12 px-10 text-center md:py-16">
 
-        {/* Logo bovenin bordeaux */}
+        {/* Logo linksboven bordeaux */}
         <img
-          src="/logo-new.png"
+          src="/LogoV4.png"
           alt="Wijnen 't Sticht"
-          className="h-44 w-auto object-contain"
+          className="h-72 w-auto object-contain self-start"
         />
 
         {/* Contact gecentreerd */}
@@ -20,7 +20,7 @@ const Hero = () => {
             className="text-sm tracking-[0.3em] uppercase text-[#F5F1EA]/60"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
-            Interesse in een wijn of meer weten over ons assortiment?
+            Interesse in samenwerking, een specifieke wijn of meer weten over ons assortiment?
           </p>
           <a
             href="#contact"
@@ -43,6 +43,7 @@ const Hero = () => {
 
       {/* Rechts — crème, 60% */}
       <div className="hidden md:flex bg-[#F5F1EA] flex-col justify-between py-16 px-10 md:px-16">
+
 
         {/* Eyebrow */}
         <p
@@ -67,10 +68,10 @@ const Hero = () => {
 
         {/* Tagline */}
         <p
-          className="text-base text-foreground/60 leading-relaxed max-w-sm"
+          className="text-base text-foreground/60 leading-relaxed whitespace-nowrap"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
-          Directe import van kwaliteitswijnen uit Frankrijk, Duitsland, Italië, Spanje en Zuid-Afrika.
+          Directe import van kwaliteitswijnen uit o.a. Duitsland, Italië, Spanje en Zuid-Afrika.
         </p>
 
       </div>

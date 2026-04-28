@@ -12,7 +12,7 @@ const Contact = () => {
 
         <div className="text-center fade-in">
           <h2 className="text-3xl md:text-4xl font-light text-primary tracking-wide mb-6">
-            Interesse in een wijn of meer weten over ons assortiment? Neem contact op.
+            Interesse in samenwerking, een specifieke wijn of meer weten over ons assortiment? Neem contact op.
           </h2>
 
           <div className="space-y-1 text-foreground/60 mb-10 text-sm">
