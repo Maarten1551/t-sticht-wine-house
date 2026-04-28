@@ -68,7 +68,7 @@ const SfeerCard = ({ partner, onOpen }: { partner: Partner; onOpen: (src: string
         )}
       </div>
     </div>
-    <p className="text-xl font-light text-foreground/85 leading-snug" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+    <p className="text-base font-light text-foreground/75 leading-snug mt-1" style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "0.02em" }}>
       {partner.naam}
     </p>
   </div>
@@ -76,7 +76,7 @@ const SfeerCard = ({ partner, onOpen }: { partner: Partner; onOpen: (src: string
 
 const FlesCard = ({ item, onOpen }: { item: FlesItem; onOpen: (src: string, alt: string) => void }) => (
   <div className="group flex flex-col">
-    <div className={`${frameClass} mb-4 cursor-zoom-in`} onClick={() => onOpen(item.foto, item.naam)}>
+    <div className="px-1 py-2.5 bg-[#5A1A2B] rounded-lg shadow-[0_12px_40px_rgba(90,26,43,0.18)] mb-4 cursor-zoom-in" onClick={() => onOpen(item.foto, item.naam)}>
       <div className="aspect-[2/3] overflow-hidden rounded-sm flex items-center justify-center bg-[#5A1A2B]">
         <img
           src={item.foto}
@@ -86,7 +86,7 @@ const FlesCard = ({ item, onOpen }: { item: FlesItem; onOpen: (src: string, alt:
         />
       </div>
     </div>
-    <p className="text-base font-light text-foreground/85 leading-snug" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+    <p className="text-base font-light text-foreground/75 leading-snug mt-1" style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "0.02em" }}>
       {item.naam}
     </p>
   </div>
@@ -110,10 +110,10 @@ const PartnerCard = ({ partner, onOpen }: { partner: Partner; onOpen: (src: stri
         )}
       </div>
     </div>
-    <p className="text-xl font-light text-foreground/85 leading-snug" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+    <p className="text-base font-light text-foreground/75 leading-snug mt-1" style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "0.02em" }}>
       {partner.naam}
     </p>
-    <p className="text-sm text-foreground/45 mt-1">{partner.detail}</p>
+    <p className="text-sm text-foreground/45 mt-0.5" style={{ fontFamily: "'Inter', sans-serif" }}>{partner.detail}</p>
   </div>
 );
 

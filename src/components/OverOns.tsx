@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ExternalLink } from "lucide-react";
 
 const fotos = [
   { src: "/Images/about/In de piemonte.JPG", alt: "Eigenaar Wijnen 't Sticht in de Piemonte", pos: "center" },
@@ -79,8 +80,8 @@ const OverOns = () => {
 
       <Divider />
 
-      {/* Passie & Import & Samenwerking — drie kolommen tekst */}
-      <div className="fade-in max-w-7xl mx-auto py-16 md:py-24 grid md:grid-cols-3 gap-12 md:gap-16">
+      {/* Passie & Import — twee kolommen */}
+      <div className="fade-in max-w-7xl mx-auto py-16 md:py-24 grid md:grid-cols-2 gap-12 md:gap-16">
         <div className="space-y-5">
           <h2 className="text-2xl md:text-3xl font-light text-primary tracking-wide">
             Passie &amp; expertise
@@ -100,37 +101,49 @@ const OverOns = () => {
             Doordat wij direct importeren en onze overhead absoluut minimaal is, kunnen wij onze wijnen tegen lage prijzen aanbieden.
           </p>
         </div>
-        <div className="space-y-5">
-          <h2 className="text-2xl md:text-3xl font-light text-primary tracking-wide">
-            Voorbeelden van samenwerking
-          </h2>
-          <p className="text-base leading-[1.8] text-foreground/80">
-            Behalve met onze leveranciers werken wij ook langjarig intensief samen met veel clubs en horeca. Ook zijn wij huisleverancier bij veel evenementen. Recente voorbeelden van het laatste:
-          </p>
-          <ul className="space-y-2 text-base leading-[1.8] text-foreground/80">
-            <li>
-              <a
-                href="https://rscrvsvlustrum.nl/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/70 transition-colors duration-200 underline underline-offset-4"
+      </div>
+
+      {/* Voorbeelden van samenwerking — full-width blok */}
+      <div className="fade-in bg-[#5A1A2B] -mx-4">
+        <div className="max-w-7xl mx-auto px-8 py-12 md:px-16 md:py-16 flex flex-col md:flex-row md:items-center gap-10 md:gap-16">
+          <div className="space-y-4 md:max-w-[500px] shrink-0">
+            <h2 className="text-2xl md:text-3xl font-light text-[#F5F1EA] tracking-wide">
+              Voorbeelden van samenwerking
+            </h2>
+            <p className="text-base leading-[1.8] text-[#F5F1EA]/70">
+              Behalve met onze leveranciers werken wij ook langjarig intensief samen met veel clubs en horeca. Ook zijn wij huisleverancier bij veel evenementen. Recente voorbeelden van het laatste:
+            </p>
+          </div>
+          <div className="flex flex-col gap-3 justify-start">
+            <a
+              href="https://rscrvsvlustrum.nl/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between gap-8 bg-[#F5F1EA]/10 hover:bg-[#F5F1EA]/20 border border-[#F5F1EA]/25 hover:border-[#F5F1EA]/50 rounded px-6 py-4 transition-all duration-200"
+            >
+              <span
+                className="text-[#F5F1EA] text-xl font-light"
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
               >
                 Lustrum RSC/RVSV 2024: FIER!
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.vindicat.nl/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/70 transition-colors duration-200 underline underline-offset-4"
+              </span>
+              <ExternalLink size={15} className="shrink-0 text-[#F5F1EA]/50 group-hover:text-[#F5F1EA]/90 transition-colors duration-200" />
+            </a>
+            <a
+              href="https://www.vindicat.nl/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between gap-8 bg-[#F5F1EA]/10 hover:bg-[#F5F1EA]/20 border border-[#F5F1EA]/25 hover:border-[#F5F1EA]/50 rounded px-6 py-4 transition-all duration-200"
+            >
+              <span
+                className="text-[#F5F1EA] text-xl font-light"
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
               >
                 Lustrum Vindicat 2025
-              </a>
-            </li>
-          </ul>
+              </span>
+              <ExternalLink size={15} className="shrink-0 text-[#F5F1EA]/50 group-hover:text-[#F5F1EA]/90 transition-colors duration-200" />
+            </a>
+          </div>
         </div>
       </div>
 

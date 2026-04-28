@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 const wijnen = [
   { naam: "Riesling", regio: "Rheingau", prijs: "€ 14,95", foto: "/Images/wijnen/riesling-rheingauV2.jpg" },
   { naam: "Valduero (Ribera) Una Cepa", regio: "Ribera del Duero", prijs: "€ 29,95", foto: "/Images/wijnen/valduero-una-cepa.png" },
@@ -5,7 +7,31 @@ const wijnen = [
   { naam: "Magali Rosé", regio: "Provence", prijs: "€ 16,95", foto: "/Images/wijnen/Magali Rose 16,95.png" },
 ];
 
+const Lightbox = ({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) => {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 cursor-zoom-out"
+      onClick={onClose}
+    >
+      <img
+        src={src}
+        alt={alt}
+        className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      />
+    </div>
+  );
+};
+
 const Wijnen = () => {
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+
   return (
     <section className="py-16 md:py-20 px-4">
       <div className="max-w-7xl mx-auto">
@@ -23,7 +49,7 @@ const Wijnen = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {wijnen.map((wijn) => (
-            <div key={wijn.naam} className="fade-in group">
+            <div key={wijn.naam} className="fade-in group cursor-zoom-in" onClick={() => setLightbox({ src: wijn.foto, alt: wijn.naam })}>
               <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-[0_8px_30px_rgba(90,26,43,0.10)] mb-4">
                 <img
                   src={wijn.foto}
@@ -43,6 +69,8 @@ const Wijnen = () => {
           ))}
         </div>
       </div>
+
+      {lightbox && <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={() => setLightbox(null)} />}
     </section>
   );
 };
