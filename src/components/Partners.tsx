@@ -160,7 +160,7 @@ const Partners = () => {
           <h2 className="text-2xl md:text-3xl font-light text-[#F5F1EA] tracking-wide mb-4">
             Voorbeelden van samenwerking
           </h2>
-          <p className="text-base leading-[1.8] text-[#F5F1EA]/70 max-w-[500px] mx-auto">
+          <p className="text-base leading-[1.8] text-[#F5F1EA]/70 max-w-[700px] mx-auto">
             Behalve met onze leveranciers werken wij ook langjarig intensief samen met veel clubs en horeca. Ook zijn wij huisleverancier bij veel evenementen.
           </p>
         </div>

@@ -80,8 +80,6 @@ const OverOns = () => {
         </div>
       </div>
 
-      <Divider />
-
       {/* Passie & Import — bordeauxrood blok */}
       <div className="fade-in bg-primary -mx-4">
         <div className="max-w-7xl mx-auto px-8 py-16 md:px-16 md:py-24 grid md:grid-cols-2 gap-12 md:gap-16">
