@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { ExternalLink } from "lucide-react";
 
 type Partner = {
   naam: string;
   detail: string;
   foto: string | null;
+  url?: string;
 };
 
 type FlesItem = {
@@ -12,8 +14,8 @@ type FlesItem = {
 };
 
 const wijnOpMaatSfeer: Partner[] = [
-  { naam: "Lustrum RSC/RVSV 2024 FIER", detail: "", foto: "/Images/Wijn op maat/rsc-lustrum.jpg" },
-  { naam: "Lustrum Vindicat 2025", detail: "", foto: "/Images/Wijn op maat/Vindicat-lustrum1.jpg" },
+  { naam: "Lustrum RSC/RVSV 2024 FIER", detail: "", foto: "/Images/Wijn op maat/rsc-lustrum.jpg", url: "https://rscrvsvlustrum.nl/" },
+  { naam: "Lustrum Vindicat 2025", detail: "", foto: "/Images/Wijn op maat/Vindicat-lustrum1.jpg", url: "https://www.vindicat.nl/" },
   { naam: "Lustrum Vindicat 2025", detail: "", foto: "/Images/Wijn op maat/Vindicat-lustrum2.jpg" },
 ];
 
@@ -68,9 +70,22 @@ const SfeerCard = ({ partner, onOpen }: { partner: Partner; onOpen: (src: string
         )}
       </div>
     </div>
-    <p className="text-base font-light text-foreground/75 leading-snug mt-1" style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "0.02em" }}>
-      {partner.naam}
-    </p>
+    {partner.url ? (
+      <a
+        href={partner.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-1.5 mt-1 text-base font-light text-primary/70 hover:text-primary transition-colors duration-200"
+        style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "0.02em" }}
+      >
+        {partner.naam}
+        <ExternalLink size={12} className="shrink-0" />
+      </a>
+    ) : (
+      <p className="text-base font-light text-foreground/75 leading-snug mt-1" style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "0.02em" }}>
+        {partner.naam}
+      </p>
+    )}
   </div>
 );
 
@@ -137,8 +152,31 @@ const Partners = () => {
   const close = () => setLightbox(null);
 
   return (
-    <section className="py-16 md:py-24 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section className="px-4">
+
+      {/* Voorbeelden van samenwerking — full-width blok */}
+      <div className="fade-in bg-[#5A1A2B] -mx-4">
+        <div className="max-w-7xl mx-auto px-8 py-12 md:px-16 md:py-16 text-center">
+          <h2 className="text-2xl md:text-3xl font-light text-[#F5F1EA] tracking-wide mb-4">
+            Voorbeelden van samenwerking
+          </h2>
+          <p className="text-base leading-[1.8] text-[#F5F1EA]/70 max-w-[500px] mx-auto">
+            Behalve met onze leveranciers werken wij ook langjarig intensief samen met veel clubs en horeca. Ook zijn wij huisleverancier bij veel evenementen.
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto py-16 md:py-24">
+
+        {/* Leveranciers */}
+        <SectieKop titel="Enkele leveranciers" />
+        <div className="fade-in grid sm:grid-cols-2 md:grid-cols-4 gap-5 md:gap-8">
+          {leveranciers.map((partner) => (
+            <PartnerCard key={partner.naam} partner={partner} onOpen={open} />
+          ))}
+        </div>
+
+        <Divider />
 
         {/* Wijn op maat */}
         <SectieKop titel="Wijn op maat" />
@@ -154,16 +192,6 @@ const Partners = () => {
         <div className="fade-in grid grid-cols-3 gap-5 md:gap-8 max-w-2xl mx-auto">
           {wijnOpMaatFlessen.map((item, i) => (
             <FlesCard key={i} item={item} onOpen={open} />
-          ))}
-        </div>
-
-        <Divider />
-
-        {/* Leveranciers */}
-        <SectieKop titel="Leveranciers" />
-        <div className="fade-in grid sm:grid-cols-2 md:grid-cols-4 gap-5 md:gap-8">
-          {leveranciers.map((partner) => (
-            <PartnerCard key={partner.naam} partner={partner} onOpen={open} />
           ))}
         </div>
 

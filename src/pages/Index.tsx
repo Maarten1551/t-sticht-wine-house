@@ -38,8 +38,8 @@ const Index = () => {
     <main>
       <Hero />
       <OverOns />
-      <Partners />
       <Wijnen />
+      <Partners />
       <Contact />
       <Footer />
     </main>

@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { ExternalLink } from "lucide-react";
 
 const fotos = [
-  { src: "/Images/about/In de piemonte.JPG", alt: "Eigenaar Wijnen 't Sticht in de Piemonte", pos: "center" },
-  { src: "/Images/partners/samenwerking-bg.jpg", alt: "Samenwerking", pos: "top" },
-  { src: "/Images/partners/piandimare-2.jpg", alt: "Piandimare", pos: "center" },
-  { src: "/Images/partners/magali-rose-provence-2.jpg", alt: "Magali Rosé Provence", pos: "center" },
+  { src: "/Images/about/In de piemonte.JPG", alt: "Eigenaar Wijnen 't Sticht in de Piemonte", pos: "center", ratio: "4/3" },
+  { src: "/Images/partners/samenwerking-bg.jpg", alt: "Samenwerking", pos: "top", ratio: "1/1" },
+  { src: "/Images/partners/piandimare-2.jpg", alt: "Piandimare", pos: "center", ratio: "4/3" },
+  { src: "/Images/partners/magali-rose-provence-2.jpg", alt: "Magali Rosé Provence", pos: "center", ratio: "4/3" },
 ];
 
 const FotoGalerij = () => {
@@ -14,7 +13,10 @@ const FotoGalerij = () => {
   return (
     <div>
       {/* Grote foto */}
-      <div className="aspect-[4/3] overflow-hidden rounded-lg shadow-[0_4px_20px_rgba(90,26,43,0.10)] mb-2">
+      <div
+        className="overflow-hidden rounded-lg shadow-[0_4px_20px_rgba(90,26,43,0.10)] mb-2"
+        style={{ aspectRatio: fotos[actief].ratio }}
+      >
         <img
           src={fotos[actief].src}
           alt={fotos[actief].alt}
@@ -70,7 +72,7 @@ const OverOns = () => {
             Over Wijnen 't Sticht
           </h2>
           <p className="text-base leading-[1.8] text-foreground/80">
-            Wijnen 't Sticht bestaat sinds februari 2014. Begonnen als franchise van Sauter Wijnen uit Maastricht/Cadier en Keer (de volledige naam was toen Sauter Wijnen Het Sticht) staat het bedrijf nu volledig op eigen benen. Waar wij aanvankelijk de expertise en het productaanbod van Sauter nodig hadden, hebben wij in de loop der jaren zelf intrinsieke kennis opgebouwd en met veel "eigen" producenten/wijngoederen exclusieve relaties opgebouwd.
+            Wijnen 't Sticht bestaat sinds februari 2014. Begonnen als franchise van Sauter Wijnen uit Maastricht/Cadier en Keer (de volledige naam was toen Sauter Wijnen Het Sticht) staat het bedrijf nu volledig op eigen benen. Waar wij aanvankelijk de expertise en het productaanbod van Sauter nodig hadden, hebben wij in de loop der jaren zelf de benodigde intrinsieke kennis opgebouwd en met veel "eigen" producenten/wijngoederen exclusieve relaties opgebouwd.
           </p>
           <p className="text-base leading-[1.8] text-foreground/80">
             Directe wijnimport (eigen accijnsnummer) beslaat het leeuwendeel van onze business.
@@ -98,54 +100,11 @@ const OverOns = () => {
             Wij werken hoofdzakelijk met kleinere familiebedrijven die generaties lang van ouders op kinderen overgaan. Import direct vanuit Frankrijk (Bourgogne, Bordeaux, Champagne), Duitsland (Rheingau, Baden), Italië (Piemonte, Veneto, Marken, Puglia), Spanje (Ribera, Toro) en Zuid Afrika (West Kaap).
           </p>
           <p className="text-base leading-[1.8] text-foreground/80">
-            Doordat wij direct importeren en onze overhead absoluut minimaal is, kunnen wij onze wijnen tegen lage prijzen aanbieden.
+            Doordat wij direct importeren en onze overhead absoluut minimaal is, kunnen wij onze wijnen tegen de laagst mogelijke prijzen aanbieden.
           </p>
         </div>
       </div>
 
-      {/* Voorbeelden van samenwerking — full-width blok */}
-      <div className="fade-in bg-[#5A1A2B] -mx-4">
-        <div className="max-w-7xl mx-auto px-8 py-12 md:px-16 md:py-16 flex flex-col md:flex-row md:items-center gap-10 md:gap-16">
-          <div className="space-y-4 md:max-w-[500px] shrink-0">
-            <h2 className="text-2xl md:text-3xl font-light text-[#F5F1EA] tracking-wide">
-              Voorbeelden van samenwerking
-            </h2>
-            <p className="text-base leading-[1.8] text-[#F5F1EA]/70">
-              Behalve met onze leveranciers werken wij ook langjarig intensief samen met veel clubs en horeca. Ook zijn wij huisleverancier bij veel evenementen. Recente voorbeelden van het laatste:
-            </p>
-          </div>
-          <div className="flex flex-col gap-3 justify-start">
-            <a
-              href="https://rscrvsvlustrum.nl/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-between gap-8 bg-[#F5F1EA]/10 hover:bg-[#F5F1EA]/20 border border-[#F5F1EA]/25 hover:border-[#F5F1EA]/50 rounded px-6 py-4 transition-all duration-200"
-            >
-              <span
-                className="text-[#F5F1EA] text-xl font-light"
-                style={{ fontFamily: "'Cormorant Garamond', serif" }}
-              >
-                Lustrum RSC/RVSV 2024: FIER!
-              </span>
-              <ExternalLink size={15} className="shrink-0 text-[#F5F1EA]/50 group-hover:text-[#F5F1EA]/90 transition-colors duration-200" />
-            </a>
-            <a
-              href="https://www.vindicat.nl/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-between gap-8 bg-[#F5F1EA]/10 hover:bg-[#F5F1EA]/20 border border-[#F5F1EA]/25 hover:border-[#F5F1EA]/50 rounded px-6 py-4 transition-all duration-200"
-            >
-              <span
-                className="text-[#F5F1EA] text-xl font-light"
-                style={{ fontFamily: "'Cormorant Garamond', serif" }}
-              >
-                Lustrum Vindicat 2025
-              </span>
-              <ExternalLink size={15} className="shrink-0 text-[#F5F1EA]/50 group-hover:text-[#F5F1EA]/90 transition-colors duration-200" />
-            </a>
-          </div>
-        </div>
-      </div>
 
     </section>
   );
