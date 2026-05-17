@@ -82,26 +82,28 @@ const OverOns = () => {
 
       <Divider />
 
-      {/* Passie & Import — twee kolommen */}
-      <div className="fade-in max-w-7xl mx-auto py-16 md:py-24 grid md:grid-cols-2 gap-12 md:gap-16">
-        <div className="space-y-5">
-          <h2 className="text-2xl md:text-3xl font-light text-primary tracking-wide">
-            Passie &amp; expertise
-          </h2>
-          <p className="text-base leading-[1.8] text-foreground/80">
-            Passie voor wijnen gaat bij ons gepaard met opgebouwde expertise. Wij verkopen een wijn alleen als wij daar geheel achter staan. Al onze wijnen zijn uitvoerig doorgeproefd en hebben wij zelf gedronken — stuk voor stuk. Wij zoeken veelal kleinere producenten uit die wij waarderen om hun vakmanschap, loyaliteit en beproefde langdurige samenwerking.
-          </p>
-        </div>
-        <div className="space-y-5">
-          <h2 className="text-2xl md:text-3xl font-light text-primary tracking-wide">
-            Eigen directe import
-          </h2>
-          <p className="text-base leading-[1.8] text-foreground/80">
-            Wij werken hoofdzakelijk met kleinere familiebedrijven die generaties lang van ouders op kinderen overgaan. Import direct vanuit Frankrijk (Bourgogne, Bordeaux, Champagne), Duitsland (Rheingau, Baden), Italië (Piemonte, Veneto, Marken, Puglia), Spanje (Ribera, Toro) en Zuid Afrika (West Kaap).
-          </p>
-          <p className="text-base leading-[1.8] text-foreground/80">
-            Doordat wij direct importeren en onze overhead absoluut minimaal is, kunnen wij onze wijnen tegen de laagst mogelijke prijzen aanbieden.
-          </p>
+      {/* Passie & Import — bordeauxrood blok */}
+      <div className="fade-in bg-primary -mx-4">
+        <div className="max-w-7xl mx-auto px-8 py-16 md:px-16 md:py-24 grid md:grid-cols-2 gap-12 md:gap-16">
+          <div className="space-y-5">
+            <h2 className="text-2xl md:text-3xl font-light text-primary-foreground tracking-wide">
+              Passie &amp; expertise
+            </h2>
+            <p className="text-base leading-[1.8] text-primary-foreground/70">
+              Passie voor wijnen gaat bij ons gepaard met opgebouwde expertise. Wij verkopen een wijn alleen als wij daar geheel achter staan. Al onze wijnen zijn uitvoerig doorgeproefd en hebben wij zelf gedronken — stuk voor stuk. Wij zoeken veelal kleinere producenten uit die wij waarderen om hun vakmanschap, loyaliteit en beproefde langdurige samenwerking.
+            </p>
+          </div>
+          <div className="space-y-5">
+            <h2 className="text-2xl md:text-3xl font-light text-primary-foreground tracking-wide">
+              Eigen directe import
+            </h2>
+            <p className="text-base leading-[1.8] text-primary-foreground/70">
+              Wij werken hoofdzakelijk met kleinere familiebedrijven die generaties lang van ouders op kinderen overgaan. Import direct vanuit Frankrijk (Bourgogne, Bordeaux, Champagne), Duitsland (Rheingau, Baden), Italië (Piemonte, Veneto, Marken, Puglia), Spanje (Ribera, Toro) en Zuid Afrika (West Kaap).
+            </p>
+            <p className="text-base leading-[1.8] text-primary-foreground/70">
+              Doordat wij direct importeren en onze overhead absoluut minimaal is, kunnen wij onze wijnen tegen de laagst mogelijke prijzen aanbieden.
+            </p>
+          </div>
         </div>
       </div>
 
