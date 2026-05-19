@@ -72,7 +72,7 @@ const OverOns = () => {
             Over Wijnen 't Sticht
           </h2>
           <p className="text-base leading-[1.8] text-foreground/80">
-            Wijnen 't Sticht bestaat sinds februari 2014. Begonnen als franchise van Sauter Wijnen uit Maastricht/Cadier en Keer (de volledige naam was toen Sauter Wijnen Het Sticht) staat het bedrijf nu volledig op eigen benen. Waar wij aanvankelijk de expertise en het productaanbod van Sauter nodig hadden, hebben wij in de loop der jaren zelf de benodigde intrinsieke kennis opgebouwd en met veel "eigen" producenten/wijngoederen exclusieve relaties opgebouwd.
+            Wijnen 't Sticht bestaat sinds februari 2014. Begonnen als franchise van Sauter Wijnen uit Maastricht/Cadier en Keer (de volledige naam was toen Sauter Wijnen Het Sticht) staat het bedrijf nu <span className="text-red-700 font-medium">(effectief al jaren)</span> volledig op eigen benen.
           </p>
           <p className="text-base leading-[1.8] text-foreground/80">
             Directe wijnimport (eigen accijnsnummer) beslaat het leeuwendeel van onze business.
